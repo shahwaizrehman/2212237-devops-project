@@ -1,6 +1,6 @@
 # 2212237 — DevOps Final Project
 
-> **Name:** Shahwaiz Rehman 
+> **Name:** Shahwaiz Rehman Khan
 > **Student:** 2212237
 > **Course:** DevOps Fundamentals
 > **Live URL:** http://YOUR_EC2_IP:8000
@@ -9,7 +9,7 @@
 
 ## Architecture
 
-```
+```text
 GitHub Push
     │
     ├── CI Pipeline (GitHub Actions)
@@ -33,12 +33,12 @@ GitHub Push
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/BSCS-2022-001-devops-project
-cd BSCS-2022-001-devops-project
+git clone [https://github.com/shahwaizrehman/2212237-devops-project.git](https://github.com/shahwaizrehman/2212237-devops-project.git)
+cd 2212237-devops-project
 
-# 2. Create your .env file
-cp .env.example .env
-# Edit .env with your values
+# 2. Create your local environment file
+cp env.example .env
+# Edit .env with your local database values
 
 # 3. Start all services
 docker compose up --build
@@ -67,14 +67,22 @@ curl http://localhost:8000/students
 # SSH into your EC2 instance
 ssh -i your-key.pem ubuntu@YOUR_EC2_IP
 
-# Install Docker
-sudo apt update && sudo apt install -y docker.io docker-compose-plugin
+# Install dependencies and configure Docker access
+sudo apt update && sudo apt install -y docker.io docker-compose git
 sudo usermod -aG docker ubuntu
+newgrp docker
 
-# Clone and run
-git clone https://github.com/YOUR_USERNAME/BSCS-2022-001-devops-project ~/devops-project
+# Clone repository
+git clone [https://github.com/shahwaizrehman/2212237-devops-project.git](https://github.com/shahwaizrehman/2212237-devops-project.git) ~/devops-project
 cd ~/devops-project
-cp .env.example .env   # Edit with production values
+
+# Create production environment variables
+echo "DB_USER=devops_user" > .env.production
+echo "DB_PASSWORD=your_strong_password_2212237" >> .env.production
+echo "DB_NAME=devops_db" >> .env.production
+chmod 600 .env.production
+
+# Start production services
 docker compose -f docker-compose.prod.yml up -d --build
 ```
 
