@@ -61,7 +61,7 @@
                 cd ~/devops-project    
                 git init || true    
                 git remote remove origin || true    
-                git remote add origin https://github.com/YOUR_USERNAME/2212239-devops-project.git    
+                git remote add origin https://github.com/YOUR_USERNAME/2212237-devops-project.git    
                 git fetch origin main    
                 git checkout -f origin/main    
                 test -f .env.production || echo -e "DB_USER=devops_user\nDB_PASSWORD=YOUR_STRONG_PASS\nDB_NAME=devops_db" > .env.production    
