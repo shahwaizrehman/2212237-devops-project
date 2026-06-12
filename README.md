@@ -3,7 +3,7 @@
 > **Name:** Shahwaiz Rehman Khan
 > **Student:** 2212237
 > **Course:** DevOps Fundamentals
-> **Live URL:** http://YOUR_EC2_IP:8000
+> **Live URL:** http://3.84.247.101:8000
 
 ---
 
@@ -65,7 +65,7 @@ curl http://localhost:8000/students
 
 ```bash
 # SSH into your EC2 instance
-ssh -i your-key.pem ubuntu@YOUR_EC2_IP
+ssh -i your-key.pem ubuntu@3.84.247.101
 
 # Install dependencies and configure Docker access
 sudo apt update && sudo apt install -y docker.io docker-compose git
